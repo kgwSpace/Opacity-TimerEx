@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 class="title">안녕하세요</h1>
+    <input type="button" value="AAAAA">
+
+    <script>
+        let opacityValue = 1;
+        const h1 = document.querySelector('.title');
+        const button = document.querySelector('input');
+       
+        button.addEventListener('click',()=>{
+            
+            //1.5초에 걸쳐서 0.02씩 떨어지는 opacity
+            id = setInterval(()=>{
+                opacityValue = opacityValue - 0.02;//50번째 호출이 0이 됨.
+                h1.style.opacity=opacityValue;
+                
+
+                if(opacityValue<=0){
+                    opacityValue=1;
+                    h1.style.opacity=opacityValue;
+                    clearInterval(id)
+                }
+            },30);//50번째 호출에서 끝남. 총 1500ms 소요.
+        });
+    </script>
+</body>
+</html>
